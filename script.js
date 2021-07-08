@@ -40,7 +40,7 @@ function loadLabeledImages() {
         labels.map(async label => {
             const descriptions = []
             for (let i = 1; i <= 2; i++) {
-                const iumage = await faceapi.fetchImage('https://github.com/magicmaster85/Facial-Detection-Images/main/Pictures/${label}/${i}.png')
+                const iumage = await faceapi.fetchImage(`https://raw.githubusercontent.com/magicmaster85/Facial-Detection-Images/main/Pictures/${label}/${i}.png`)
                 const detections = await faceapi.deteSingleFace(img)
                 .withFaceLandmarks().withFaceDescriptor()
                 descriptions.push(detections.descriptor)
