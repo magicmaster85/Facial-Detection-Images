@@ -16,7 +16,7 @@ async function start() {
 
     // Face Matcher, and confidence percentage (60%)
     const labeledFaceDescriptors = await loadPictures()
-    const faceMatcher = new faceapi.FaceMatcher(LabeledFaceDescriptors, 0.6)
+    const faceMatcher = new faceapi.FaceMatcher(labeledFaceDescriptors, 0.6)
 
     // Load Picture
     document.body.append('Loaded')
@@ -56,7 +56,7 @@ async function start() {
 
 // Parse Labeled Images to identify face with library
 function loadPictures() {
-    const labels = ['Aaron', 'Ardeth', 'Beau', 'Jarom', 'John', 'Karen', 'Melissa', 'Nina', 'Tyler']
+    const labels = ['Aaron', 'Ardeth', 'Jarom', 'John', 'Karen', 'Melissa', 'Nina', 'Tyler']
     return Promise.all(
         labels.map(async label => {
             // Initialize empty array of detections
